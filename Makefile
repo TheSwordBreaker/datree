@@ -1,11 +1,17 @@
 run: 
 	go run -tags staging -ldflags="-X github.com/datreeio/datree/cmd.CliVersion=0.0.1" main.go test ./internal/fixtures/**/*.yaml
 
+run-dev:
+	go run -tags dev -ldflags="-X github.com/datreeio/datree/cmd.CliVersion=0.0.1" main.go test ./internal/fixtures/**/*.yaml
+
 test:
 	go test ./...
 
 build:
 	go build -tags staging -ldflags="-X github.com/datreeio/datree/cmd.CliVersion=0.0.1"
+
+build-dev:
+	go build -tags dev -ldflags="-X github.com/datreeio/datree/cmd.CliVersion=0.0.1"
 
 create-bin:
 	goreleaser --snapshot --skip-publish --rm-dist
